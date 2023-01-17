@@ -23,18 +23,13 @@ public class DriveBase extends SubsystemBase {
 
   DifferentialDrive db;
 
-  
   public DriveBase() {
-
     MotorControllerGroup rightMotors = new MotorControllerGroup(fr, rr);
     MotorControllerGroup leftMotors = new MotorControllerGroup(fl, rl);
 
     leftMotors.setInverted(true);
-    
     db = new DifferentialDrive(rightMotors, leftMotors);
-    
   }
-
 
   public CommandBase exampleMethodCommand() {
     // Inline construction of command goes here.
@@ -45,16 +40,9 @@ public class DriveBase extends SubsystemBase {
         );
   }
 
-
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-  }
-
-  @Override
-  public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
   }
 
   public void arcadeDrive(double speed,double rotation){
