@@ -1,0 +1,12 @@
+name: FRC Build & Test
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2-beta
+    - name: FRC Build & Test
+      uses: markebert/FRC-actions@v2.1
+      with:
+        build_mode: 'build'
