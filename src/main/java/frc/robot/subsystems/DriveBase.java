@@ -5,27 +5,25 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
-
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  CANSparkMax fl = new CANSparkMax(3, MotorType.kBrushed);
-  CANSparkMax fr = new CANSparkMax(2, MotorType.kBrushed);
-  CANSparkMax rl = new CANSparkMax(4, MotorType.kBrushed);
-  CANSparkMax rr = new CANSparkMax(1, MotorType.kBrushed);
+  VictorSPX fl = new VictorSPX(3);
+  VictorSPX fr = new VictorSPX(2);
+  VictorSPX rl = new VictorSPX(4);
+  VictorSPX rr = new VictorSPX(1);
 
   DifferentialDrive db;
 
   public DriveBase() {
-    MotorControllerGroup rightMotors = new MotorControllerGroup(fr, rr);
-    MotorControllerGroup leftMotors = new MotorControllerGroup(fl, rl);
+    MotorControllerGroup rightMotors = new MotorControllerGroup((MotorController)fr,(MotorController)rr);
+    MotorControllerGroup leftMotors = new MotorControllerGroup((MotorController)fl, (MotorController)rl);
 
     leftMotors.setInverted(true);
     db = new DifferentialDrive(rightMotors, leftMotors);
