@@ -5,39 +5,29 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants;
 
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  VictorSPX fl = new VictorSPX(constants.db.fl);
-  VictorSPX fr = new VictorSPX(constants.db.fr);
-  VictorSPX rl = new VictorSPX(constants.db.rl);
-  VictorSPX rr = new VictorSPX(constants.db.rr);
+  WPI_TalonSRX fl = new WPI_TalonSRX(constants.db.fl);
+  WPI_TalonSRX fr = new WPI_TalonSRX(constants.db.fr);
+  WPI_TalonSRX rl = new WPI_TalonSRX(constants.db.rl);
+  WPI_TalonSRX rr = new WPI_TalonSRX(constants.db.rr);
 
   DifferentialDrive db;
 
   public DriveBase() {
-    MotorControllerGroup rightMotors = new MotorControllerGroup((MotorController)fr,(MotorController)rr);
-    MotorControllerGroup leftMotors = new MotorControllerGroup((MotorController)fl, (MotorController)rl);
+    MotorControllerGroup rightMotors = new MotorControllerGroup(fr,rr);
+    MotorControllerGroup leftMotors = new MotorControllerGroup(fl,rl);
 
     leftMotors.setInverted(true);
     db = new DifferentialDrive(rightMotors, leftMotors);
   }
 
-  public CommandBase exampleMethodCommand() {
-    // Inline construction of command goes here.
-    // Subsystem::RunOnce implicitly requires `this` subsystem.
-    return runOnce(
-        () -> 
-          System.out.println("Hello World. I am Jessica.")
-        );
-  }
 
   @Override
   public void periodic() {
