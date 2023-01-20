@@ -27,7 +27,7 @@ public class RobotContainer {
 
     driveBase.setDefaultCommand(
       new RunCommand(
-        ()->driveBase.arcadeDrive(xbxCntrlr.getRightY(), xbxCntrlr.getLeftX()),
+        ()->driveBase.arcadeDrive(xbxCntrlr.getRightY(),- xbxCntrlr.getLeftX()),
          driveBase
         )
     );
