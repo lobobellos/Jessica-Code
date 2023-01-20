@@ -9,16 +9,16 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+import frc.robot.constants;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  VictorSPX fl = new VictorSPX(Constants.db.fl);
-  VictorSPX fr = new VictorSPX(Constants.db.fr);
-  VictorSPX rl = new VictorSPX(Constants.db.rl);
-  VictorSPX rr = new VictorSPX(Constants.db.rr);
+  VictorSPX fl = new VictorSPX(constants.db.fl);
+  VictorSPX fr = new VictorSPX(constants.db.fr);
+  VictorSPX rl = new VictorSPX(constants.db.rl);
+  VictorSPX rr = new VictorSPX(constants.db.rr);
 
   DifferentialDrive db;
 
