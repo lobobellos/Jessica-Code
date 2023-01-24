@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -21,6 +22,13 @@ public class DriveBase extends SubsystemBase {
   DifferentialDrive db;
 
   public DriveBase() {
+
+    fl.setNeutralMode(NeutralMode.Brake);
+    fr.setNeutralMode(NeutralMode.Brake);
+    rl.setNeutralMode(NeutralMode.Brake);
+    rr.setNeutralMode(NeutralMode.Brake);
+
+
     MotorControllerGroup rightMotors = new MotorControllerGroup(fr,rr);
     MotorControllerGroup leftMotors = new MotorControllerGroup(fl,rl);
 
