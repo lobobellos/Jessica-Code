@@ -23,10 +23,10 @@ public class DriveBase extends SubsystemBase {
 
   public DriveBase() {
 
-    fl.setNeutralMode(NeutralMode.Brake);
-    fr.setNeutralMode(NeutralMode.Brake);
-    rl.setNeutralMode(NeutralMode.Brake);
-    rr.setNeutralMode(NeutralMode.Brake);
+    fl.setNeutralMode(NeutralMode.Coast);
+    fr.setNeutralMode(NeutralMode.Coast);
+    rl.setNeutralMode(NeutralMode.Coast);
+    rr.setNeutralMode(NeutralMode.Coast);
 
 
     MotorControllerGroup rightMotors = new MotorControllerGroup(fr,rr);
