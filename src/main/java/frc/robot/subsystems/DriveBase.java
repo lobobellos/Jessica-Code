@@ -14,10 +14,10 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  WPI_TalonSRX fl = new WPI_TalonSRX(constants.db.fl);
-  WPI_TalonSRX fr = new WPI_TalonSRX(constants.db.fr);
-  WPI_TalonSRX rl = new WPI_TalonSRX(constants.db.rl);
-  WPI_TalonSRX rr = new WPI_TalonSRX(constants.db.rr);
+  private WPI_TalonSRX fl = new WPI_TalonSRX(constants.db.fl);
+  private WPI_TalonSRX fr = new WPI_TalonSRX(constants.db.fr);
+  private WPI_TalonSRX rl = new WPI_TalonSRX(constants.db.rl);
+  private WPI_TalonSRX rr = new WPI_TalonSRX(constants.db.rr);
 
   DifferentialDrive db;
 
@@ -34,6 +34,9 @@ public class DriveBase extends SubsystemBase {
 
     leftMotors.setInverted(true);
     db = new DifferentialDrive(rightMotors, leftMotors);
+
+    addChild("leftMotors", leftMotors);
+    addChild("rightMotors", rightMotors);
   }
 
 
