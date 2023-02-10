@@ -19,7 +19,7 @@ public class RobotContainer {
   private final DriveBase driveBase = new DriveBase();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController xbxCntrlr =
+  private final CommandXboxController xboxController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -27,7 +27,10 @@ public class RobotContainer {
 
     driveBase.setDefaultCommand(
       new RunCommand(
-        ()->driveBase.tankDrive(xbxCntrlr.getLeftY(),xbxCntrlr.getRightY()),
+        ()->driveBase.drive(
+          xboxController.getLeftY(),xboxController.getRightY(),
+          xboxController.getLeftY(),-xboxController.getRightX()
+        ),
         driveBase
         )
     );
@@ -38,6 +41,14 @@ public class RobotContainer {
 
 
   private void configureBindings() {
+
+    xboxController.a().onTrue(
+      new InstantCommand(
+        ()->driveBase.toggleDrive(),
+        driveBase
+      )
+    );
+
 
   }
 

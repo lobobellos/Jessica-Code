@@ -21,6 +21,8 @@ public class DriveBase extends SubsystemBase {
 
   DifferentialDrive db;
 
+  boolean isTankDrive = true;
+
   public DriveBase() {
 
     fl.setNeutralMode(NeutralMode.Coast);
@@ -39,10 +41,16 @@ public class DriveBase extends SubsystemBase {
     addChild("rightMotors", rightMotors);
   }
 
+  public void toggleDrive(){
+    isTankDrive = isTankDrive ? false : true;
+  }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
+  public void drive(double lSpeed,double rSpeed,double speed,double rotation){
+    if(isTankDrive){
+      tankDrive(lSpeed, rSpeed);
+    }else{
+      arcadeDrive(speed, rotation);
+    }
   }
 
   public void arcadeDrive(double speed,double rotation){
