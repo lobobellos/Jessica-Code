@@ -7,17 +7,17 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants;
+import frc.robot.Constants;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 public class DriveBase extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private WPI_TalonSRX fl = new WPI_TalonSRX(constants.db.fl);
-  private WPI_TalonSRX fr = new WPI_TalonSRX(constants.db.fr);
-  private WPI_TalonSRX rl = new WPI_TalonSRX(constants.db.rl);
-  private WPI_TalonSRX rr = new WPI_TalonSRX(constants.db.rr);
+  private WPI_TalonSRX fr = new WPI_TalonSRX(Constants.db.fr);
+  private WPI_TalonSRX fl = new WPI_TalonSRX(Constants.db.fl);
+  private WPI_TalonSRX rl = new WPI_TalonSRX(Constants.db.rl);
+  private WPI_TalonSRX rr = new WPI_TalonSRX(Constants.db.rr);
 
   DifferentialDrive db;
 
